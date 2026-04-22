@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Env
+.env
+.env.*
+!.env.example
+
+.claude
+.idea
+.hbuilderx/
+.vscode/
+resumeai.keystore
+备案信息.md
+
+# UniApp build artifacts
+uniapp/dist/
+uniapp/unpackage/
+uniapp/node_modules/
+uniapp/package-lock.json
+/uniapp/.hbuilderx/
+
+
+# Backend runtime artifacts
+backend/node_modules/
+backend/.env
+
+# Logs
+*.log
