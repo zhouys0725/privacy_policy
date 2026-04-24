@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>拾音 Vois Privacy Policy | 隐私政策</title>
-  <meta name="description" content="Official bilingual privacy policy for 拾音 Vois. View the English and Chinese privacy policy in a single Vercel-ready page.">
-  <meta name="theme-color" content="#ebe3d2">
-  <meta property="og:title" content="拾音 Vois Privacy Policy">
-  <meta property="og:description" content="Official bilingual privacy policy for 拾音 Vois.">
-  <meta property="og:type" content="website">
+  <title>拾音 Vois | 听见思绪，预见行动 - AI 语音效率专家</title>
+  <meta name="description" content="拾音 Vois 官方网站 - 录入语音，AI 自动生成待办事项与深度周复盘，让灵感即刻落地。">
   <style>
     :root {
       --bg: #ebe3d2;
@@ -27,6 +23,7 @@
 
     * {
       box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
     }
 
     html {
@@ -41,813 +38,419 @@
         radial-gradient(circle at 15% 10%, rgba(156, 79, 47, 0.18), transparent 22%),
         radial-gradient(circle at 85% 5%, rgba(31, 92, 82, 0.16), transparent 18%),
         linear-gradient(180deg, #eee4d3 0%, #f7f1e7 42%, #efe3d0 100%);
-      line-height: 1.72;
-    }
-
-    a {
-      color: var(--accent);
-      text-underline-offset: 0.18em;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
     .shell {
-      width: min(1180px, calc(100% - 28px));
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 28px 0 64px;
+      padding: 0 24px;
     }
 
-    .masthead {
+    /* --- Navigation --- */
+    nav {
+      height: 100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
+      z-index: 100;
+      position: relative;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      font-size: 0.95rem;
-      color: var(--muted);
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
     }
 
     .brand-mark {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), #c67e57);
-      box-shadow: 0 10px 24px rgba(156, 79, 47, 0.28);
+      object-fit: cover;
+      box-shadow: 0 10px 24px rgba(156, 79, 47, 0.18);
     }
 
-    .lang-switch {
-      display: inline-flex;
-      padding: 5px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255, 251, 243, 0.75);
-      backdrop-filter: blur(12px);
+    .brand-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
     }
 
-    .lang-switch button {
-      border: 0;
-      background: transparent;
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
       color: var(--muted);
-      padding: 10px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      font: inherit;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
 
-    .lang-switch button.active {
-      color: #fff;
-      background: var(--ink);
+    .nav-links a:hover {
+      color: var(--accent);
     }
 
+    /* --- Hero Section --- */
     .hero {
+      padding: 80px 0 100px;
+      text-align: center;
       position: relative;
-      overflow: hidden;
-      padding: 40px;
-      border: 1px solid var(--line);
-      border-radius: 36px;
-      background:
-        linear-gradient(135deg, rgba(255, 248, 237, 0.95), rgba(247, 239, 225, 0.82)),
-        var(--panel);
-      box-shadow: var(--shadow);
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -50px auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(31, 92, 82, 0.18), transparent 64%);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 14px;
-      padding: 7px 12px;
-      border-radius: 999px;
+    .hero-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
     }
 
-    h1, h2, h3, h4 {
-      margin: 0 0 14px;
-      line-height: 1.18;
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin: 0 0 24px;
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.04em;
     }
 
-    h1 {
-      max-width: 12ch;
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      letter-spacing: -0.05em;
-    }
-
-    h2 {
-      margin-top: 32px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-      font-size: 1.6rem;
-    }
-
-    h3 {
-      margin-top: 26px;
-      font-size: 1.12rem;
-    }
-
-    h4 {
-      margin-top: 18px;
-      font-size: 1rem;
-    }
-
-    p, li {
-      margin-top: 0;
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
       color: var(--muted);
-      font-size: 1rem;
+      max-width: 650px;
+      margin: 0 auto 48px;
+      line-height: 1.5;
     }
 
-    .hero-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
-      gap: 28px;
-      align-items: end;
-    }
-
-    .hero-copy p {
-      max-width: 60ch;
-      font-size: 1.06rem;
-    }
-
-    .pill-row,
-    .summary-grid {
+    .cta-group {
       display: flex;
+      justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 36px;
+      border-radius: 18px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
       gap: 12px;
     }
 
-    .pill {
-      padding: 9px 13px;
-      border: 1px solid rgba(32, 25, 20, 0.08);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.48);
-      color: var(--muted);
-      font-size: 0.95rem;
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(32, 25, 20, 0.15);
     }
 
-    .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(32, 25, 20, 0.25);
     }
 
-    .summary-card {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(255, 252, 246, 0.72);
-    }
-
-    .summary-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--ink);
-      font-size: 0.96rem;
-    }
-
-    .body-grid {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 24px;
-      margin-top: 24px;
-      align-items: start;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+    .btn-secondary {
       background: var(--panel);
-      backdrop-filter: blur(12px);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: var(--panel-strong);
+      border-color: var(--muted);
+    }
+
+    /* --- Features --- */
+    .features {
+      padding: 60px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--panel);
+      padding: 40px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      transition: all 0.4s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 60px rgba(156, 79, 47, 0.1);
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* --- Detailed Sections --- */
+    .detail-section {
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .detail-section:nth-child(even) {
+      direction: rtl;
+    }
+
+    .detail-section:nth-child(even) .detail-content {
+      direction: ltr;
+    }
+
+    .detail-content h2 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .detail-content p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .visual-mockup {
+      background: var(--panel-strong);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
       box-shadow: var(--shadow);
     }
 
-    .nav {
-      position: sticky;
-      top: 22px;
-      padding: 24px;
+    .ai-bubble {
+      background: #fff;
+      padding: 16px 20px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      max-width: 80%;
+      align-self: flex-start;
+      font-size: 0.95rem;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    .nav-title {
-      margin-bottom: 14px;
+    .ai-bubble.task {
+      align-self: flex-end;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 4px;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* --- Footer --- */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--line);
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      margin-top: 16px;
       color: var(--muted);
-      text-transform: uppercase;
-      font-size: 0.84rem;
-      letter-spacing: 0.08em;
     }
 
-    .nav ul {
+    .footer-links {
+      display: flex;
+      gap: 60px;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 16px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    .footer-col ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: grid;
-      gap: 8px;
     }
 
-    .nav a {
-      display: block;
-      padding: 10px 12px;
-      border-radius: 14px;
-      color: var(--ink);
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
       text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: rgba(156, 79, 47, 0.08);
-      transform: translateX(2px);
-      outline: none;
-    }
-
-    .content {
-      padding: 18px;
-    }
-
-    .policy {
-      display: none;
-      padding: 14px 14px 22px;
-      border-radius: 22px;
-      background: rgba(255, 252, 247, 0.52);
-    }
-
-    .policy.active {
-      display: block;
-      animation: rise 220ms ease;
-    }
-
-    @keyframes rise {
-      from {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .policy-intro {
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(247, 241, 230, 0.72));
-    }
-
-    .notice {
-      margin-top: 18px;
-      padding: 18px 20px;
-      border-left: 4px solid var(--accent-2);
-      border-radius: 18px;
-      background: rgba(31, 92, 82, 0.08);
       color: var(--muted);
+      transition: color 0.3s;
     }
 
-    ul {
-      padding-left: 22px;
+    .footer-col a:hover {
+      color: var(--accent);
     }
 
-    strong {
-      color: var(--ink);
-    }
-
-    .footer {
-      margin-top: 24px;
-      padding: 22px 24px;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background: var(--panel-strong);
-      box-shadow: var(--shadow);
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
       color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .footer p:last-child {
-      margin-bottom: 0;
-    }
-
-    [data-lang="zh"] {
-      font-family: "Songti SC", "Noto Serif SC", "PingFang SC", serif;
-    }
-
-    @media (max-width: 960px) {
-      .hero-grid,
-      .body-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        position: static;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .shell {
-        width: min(100% - 18px, 1180px);
-        padding: 18px 0 44px;
-      }
-
-      .masthead {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero {
-        padding: 24px;
-        border-radius: 28px;
-      }
-
-      .content,
-      .nav {
-        padding: 18px;
-      }
-
-      .summary-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 40px 0 80px; }
+      .detail-section { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .detail-section:nth-child(even) { direction: ltr; }
+      .ai-bubble { max-width: 90%; }
     }
   </style>
 </head>
 <body>
-  <main class="shell">
-    <header class="masthead">
-      <div class="brand">
-        <div class="brand-mark">V</div>
-        <div>
-          <strong>拾音 Vois</strong><br>
-          Official Privacy Policy
-        </div>
+
+  <div class="shell">
+    <nav>
+      <a href="#" class="brand">
+        <img src="logo.png" alt="拾音 Vois Logo" class="brand-mark">
+        <span class="brand-name">拾音 Vois</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">核心功能</a>
+        <a href="https://apps.apple.com/cn/app/%E6%8B%BE%E9%9F%B3-vois/id6762446341">立即下载</a>
+        <a href="privacy.html">隐私政策</a>
       </div>
-      <div class="lang-switch" aria-label="Language switcher">
-        <button type="button" class="active" data-switch="en">English</button>
-        <button type="button" data-switch="zh">中文</button>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-eyebrow">AI 驱动的思绪管理</div>
+      <h1>听见思绪<br>预见行动</h1>
+      <p>拾音 Vois 是一款极简的语音效率工具。随口录入，AI 自动为你梳理待办清单与深度复盘，让灵感即刻化为有序执行。</p>
+      
+      <div class="cta-group">
+        <a href="https://apps.apple.com/cn/app/%E6%8B%BE%E9%9F%B3-vois/id6762446341" class="btn btn-primary">
+          前往 App Store 下载
+        </a>
+        <a href="#features" class="btn btn-secondary">了解更多</a>
       </div>
     </header>
 
-    <section class="hero panel">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Bilingual Policy Page</p>
-          <h1>Privacy, made readable.</h1>
-          <p>
-            A cleaner, public-facing policy page for <strong>拾音 Vois</strong>, built for app review,
-            user trust, and direct Vercel deployment. English and Chinese live on one page with a simple toggle.
-          </p>
-          <div class="pill-row">
-            <span class="pill">Last updated: April 20, 2026</span>
-            <span class="pill">Contact: zhouys0725@gmail.com</span>
-            <span class="pill">Deployment: Vercel-ready</span>
-          </div>
-        </div>
-        <div class="summary-grid">
-          <div class="summary-card">
-            <strong>Core data</strong>
-            Phone number, account credentials, voice audio, transcript text, diary content, AI summaries, weekly reviews, order status, and device identifiers.
-          </div>
-          <div class="summary-card">
-            <strong>Main purposes</strong>
-            Voice diary recording, speech-to-text, AI summarization, weekly review generation, account authentication, subscription management, and security.
-          </div>
-          <div class="summary-card">
-            <strong>Third parties</strong>
-            Tongyi Yunqi for AI processing, Apple and WeChat for payment and subscription services, and necessary SMS service providers.
-          </div>
-          <div class="summary-card">
-            <strong>User rights</strong>
-            Request access, correction, deletion, and policy clarification by email.
-          </div>
-        </div>
+    <section id="features" class="features">
+      <div class="feature-card">
+        <div class="feature-icon">🎙️</div>
+        <h3>随想随录</h3>
+        <p>无需打字，像聊天一样录入语音。无论在开车还是行走，不错过每一个闪现的灵感。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>瞬时待办</h3>
+        <p>AI 自动理解语义，从凌乱的叙述中提取任务。时间、地点、事项，一目了然。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>深度复盘</h3>
+        <p>回顾一周录音，AI 为你生成可视化周报。总结得失，发现规律，让成长有迹可循。</p>
       </div>
     </section>
 
-    <div class="body-grid">
-      <aside class="nav panel">
-        <div class="nav-title">Contents</div>
-        <ul>
-          <li><a href="#overview" data-en-href="#overview" data-zh-href="#overview-zh" data-en-label="Overview" data-zh-label="概述">Overview</a></li>
-          <li><a href="#definitions" data-en-href="#definitions" data-zh-href="#definitions-zh" data-en-label="Definitions" data-zh-label="定义">Definitions</a></li>
-          <li><a href="#collection" data-en-href="#collection" data-zh-href="#collection-zh" data-en-label="Collection" data-zh-label="收集信息">Collection</a></li>
-          <li><a href="#usage" data-en-href="#usage" data-zh-href="#usage-zh" data-en-label="Use of Data" data-zh-label="使用目的">Use of Data</a></li>
-          <li><a href="#retention" data-en-href="#retention" data-zh-href="#retention-zh" data-en-label="Retention" data-zh-label="保存期限">Retention</a></li>
-          <li><a href="#transfer" data-en-href="#transfer" data-zh-href="#transfer-zh" data-en-label="Transfer" data-zh-label="跨境传输">Transfer</a></li>
-          <li><a href="#deletion" data-en-href="#deletion" data-zh-href="#deletion-zh" data-en-label="Deletion" data-zh-label="删除与更正">Deletion</a></li>
-          <li><a href="#disclosure" data-en-href="#disclosure" data-zh-href="#disclosure-zh" data-en-label="Disclosure" data-zh-label="信息披露">Disclosure</a></li>
-          <li><a href="#security" data-en-href="#security" data-zh-href="#security-zh" data-en-label="Security" data-zh-label="安全措施">Security</a></li>
-          <li><a href="#third-parties" data-en-href="#third-parties" data-zh-href="#third-parties-zh" data-en-label="Third Parties" data-zh-label="第三方服务">Third Parties</a></li>
-          <li><a href="#children" data-en-href="#children" data-zh-href="#children-zh" data-en-label="Children" data-zh-label="未成年人">Children</a></li>
-          <li><a href="#changes" data-en-href="#changes" data-zh-href="#changes-zh" data-en-label="Changes" data-zh-label="政策变更">Changes</a></li>
-          <li><a href="#contact" data-en-href="#contact" data-zh-href="#contact-zh" data-en-label="Contact" data-zh-label="联系我们">Contact</a></li>
+    <section class="detail-section">
+      <div class="detail-content">
+        <h2>语音，是更自然的指令</h2>
+        <p>在拾音中，你无需纠结分类或格式。AI 隐于幕后，它能听懂你的语气、轻重缓急，并将它们整理成最清晰的文字与行动方案。</p>
+        <ul style="padding:0; list-style:none; color:var(--muted)">
+          <li style="margin-bottom:12px">✓ 语义化提取任务</li>
+          <li style="margin-bottom:12px">✓ 自动识别轻重缓急</li>
+          <li style="margin-bottom:12px">✓ 极简交互，一触即录</li>
         </ul>
-      </aside>
+      </div>
+      <div class="visual-mockup">
+        <div class="ai-bubble">“记得周五下午三点提醒我发周报给王经理”</div>
+        <div class="ai-bubble task">📅 已添加待办：发送周报<br><small>周五 15:00 · 优先级：高</small></div>
+        <div class="ai-bubble">“这周我学习了 SwiftUI 感觉非常有成就感”</div>
+        <div class="ai-bubble task">📈 已加入周复盘：技能学习板块</div>
+      </div>
+    </section>
 
-      <section class="content panel">
-        <article class="policy active" data-lang="en">
-          <div class="policy-intro" id="overview">
-            <h2>Overview</h2>
-            <p>
-              This Privacy Policy describes how 拾音 Vois collects, uses, stores, shares, and protects
-              information when you use the application. By using the Service, you agree to the practices described here.
-            </p>
-            <p>
-              This page is intended to serve as the public privacy policy for product pages, app review, and end users.
-            </p>
-          </div>
-
-          <section id="definitions">
-            <h2>Interpretation and Definitions</h2>
-            <h3>Interpretation</h3>
-            <p>Capitalized words have the meanings defined below, whether they appear in singular or plural form.</p>
-            <h3>Definitions</h3>
-            <ul>
-              <li><strong>Application</strong> means the 拾音 Vois software product.</li>
-              <li><strong>Company</strong> means 拾音 Vois and its operator, Beijing Gravity Arc Technology Center, and is also referred to as "We", "Us", or "Our".</li>
-              <li><strong>Device</strong> means any device used to access the Service, including phones, tablets, or computers.</li>
-              <li><strong>Personal Data</strong> means information relating to an identified or identifiable person.</li>
-              <li><strong>Service Provider</strong> means any third party processing data on behalf of the Company.</li>
-              <li><strong>Usage Data</strong> means technical and diagnostic information collected automatically through use of the Service.</li>
-            </ul>
-          </section>
-
-          <section id="collection">
-            <h2>Collecting Personal Data</h2>
-            <h3>Data We May Collect</h3>
-            <ul>
-              <li><strong>Account and authentication data</strong>, including phone number, username, password hash, login tokens, refresh tokens, and SMS verification information where required for account registration and login.</li>
-              <li><strong>Voice diary and AI data</strong>, including voice recordings or audio streams you actively submit, transcript text generated from the audio, diary entries, titles, moods, summaries, insights, next-step suggestions, extracted items, and weekly review content.</li>
-              <li><strong>Subscription and payment-related data</strong>, including subscription status, product identifier, order number, transaction status, and payment result needed to verify entitlements and provide after-sales support.</li>
-              <li><strong>Settings and notification data</strong>, including reminder preferences, weekly reminder time, and related trigger information.</li>
-              <li><strong>Usage and device data</strong>, including IP address, browser type, operating system details, device identifiers, access times, and necessary interaction logs for security and troubleshooting.</li>
-            </ul>
-            <h3>Tracking Disclosure</h3>
-            <p>
-              If you authorize tracking on Apple platforms, device identifiers and user-related identifiers may be collected and used for tracking purposes
-              as required by the platform privacy disclosure framework. Where such authorization is requested, you may decline it in the system prompt or
-              later change your choice in device settings.
-            </p>
-            <h3>Permission-Based Access</h3>
-            <p>
-              Microphone permission is requested when needed for voice recording and voice diary creation.
-              You can revoke this permission at any time through device settings, but voice recording and related AI functions may then be unavailable.
-            </p>
-            <h3>AI Service Inputs</h3>
-            <p>
-              When you use AI-powered speech recognition and analysis features, we collect the voice recordings or audio streams you actively provide,
-              the transcribed text derived from that audio, your diary content, and related analysis results in order to call third-party AI interfaces and deliver
-              speech recognition, diary summarization, insight extraction, and weekly review generation.
-            </p>
-          </section>
-
-          <section id="usage">
-            <h2>How We Use Data</h2>
-            <ul>
-              <li>To provide, maintain, and improve the Service.</li>
-              <li>To manage account registration, login, identity verification, and support requests.</li>
-              <li>To create, store, and display voice diary records and history.</li>
-              <li>To contact you about updates, security notices, and service-related matters.</li>
-              <li>To analyze usage trends and improve product performance.</li>
-              <li>To prevent abuse, protect infrastructure, and meet legal obligations.</li>
-              <li>To synchronize subscription status, process payment-related states, and provide membership benefits.</li>
-              <li>To provide reminder settings and weekly reminder scheduling.</li>
-              <li>Where platform authorization is granted, to use certain identifiers for tracking-related purposes disclosed in the relevant app store privacy labels.</li>
-              <li>To support business transfers such as mergers, acquisitions, or restructurings if required.</li>
-              <li>To invoke third-party AI interfaces when you actively use AI functions, so as to provide speech recognition, structured summaries, insights, and weekly review outputs.</li>
-            </ul>
-          </section>
-
-          <section id="retention">
-            <h2>Retention of Personal Data</h2>
-            <p>We retain data only as long as necessary for the purposes described in this Privacy Policy.</p>
-            <ul>
-              <li><strong>Account-related data:</strong> during the account lifecycle and up to 24 months after closure.</li>
-              <li><strong>Voice diary, transcript, summary, and weekly review data:</strong> generally retained during the account lifecycle unless you delete the relevant content or close your account, subject to lawful retention requirements.</li>
-              <li><strong>Subscription and payment-related data:</strong> retained as required to verify entitlements, handle disputes, process refunds, and comply with financial, tax, or platform obligations.</li>
-              <li><strong>Usage analytics and logs:</strong> generally up to 24 months for troubleshooting, security, and product improvement.</li>
-              <li><strong>Extended retention:</strong> may apply for legal compliance, dispute resolution, backup handling, or fraud prevention.</li>
-            </ul>
-          </section>
-
-          <section id="transfer">
-            <h2>Transfer of Personal Data</h2>
-            <p>
-              Your information may be processed in locations where the Company or its service providers operate.
-              Where applicable law requires it, we will use appropriate safeguards for cross-border transfers.
-            </p>
-          </section>
-
-          <section id="deletion">
-            <h2>Deleting Your Data</h2>
-            <p>You may request access to, correction of, or deletion of personal data you have provided to us.</p>
-            <p>Some information may be retained if we have a legal basis or legitimate operational need to keep it.</p>
-          </section>
-
-          <section id="disclosure">
-            <h2>Disclosure of Personal Data</h2>
-            <ul>
-              <li>To service providers that help operate, support, or improve the Service.</li>
-              <li>To SMS verification service providers where needed to send login or verification codes.</li>
-              <li>To Apple App Store, WeChat Pay, and other payment or subscription service providers as needed to create orders, verify purchases, and confirm entitlements.</li>
-              <li>In connection with business transactions such as merger, acquisition, or asset transfer.</li>
-              <li>When required by law, regulation, court order, or valid governmental request.</li>
-              <li>When necessary to protect rights, property, public safety, or the integrity of the Service.</li>
-              <li>Where platform authorization is granted, certain device identifiers or user-related identifiers may be processed for tracking-related purposes reflected in the corresponding platform privacy disclosures.</li>
-              <li>To third-party AI technology providers when you choose to use speech recognition and diary analysis features. In order to provide those services, we transmit your voice audio, transcript text, and related diary content to Tongyi Yunqi (Hangzhou) Information Technology Co., Ltd. That provider acts as our data processor and processes the data only in accordance with our instructions for the purpose of completing speech recognition, summarization, insight generation, and weekly review analysis.</li>
-            </ul>
-          </section>
-
-          <section id="security">
-            <h2>Security</h2>
-            <p>
-              We use commercially reasonable measures to protect personal data, but no transmission or storage method
-              is completely secure. Absolute security cannot be guaranteed.
-            </p>
-          </section>
-
-          <section id="third-parties">
-            <h2>Third-Party Services</h2>
-            <p>We may use third-party service providers to support account authentication, AI processing, subscription services, payments, and overall operation of the Service.</p>
-            <ul>
-              <li>
-                <strong>AI technology provider</strong>: when you use speech recognition and diary analysis features, your submitted inputs, including voice audio, transcript text, and related diary content,
-                may be transmitted to <strong>Tongyi Yunqi (Hangzhou) Information Technology Co., Ltd.</strong>.
-                We collect your voice recordings or audio streams, the transcribed text derived from that audio, diary content, and related analysis results for the purpose of calling
-                third-party AI interfaces to provide speech recognition, structured summaries, insights, and weekly review outputs. The provider acts as our data processor and processes the data
-                only under our instructions to complete the requested recognition and analysis. We require the provider to apply contractual data protection measures,
-                including encryption and restrictions consistent with your privacy settings, such as not using the submitted content for unrelated purposes.
-              </li>
-              <li>
-                <strong>Payment and subscription service providers</strong>: when you purchase memberships or subscriptions, payment-related data may be processed by Apple App Store,
-                WeChat Pay, and other applicable payment channels. We receive and process only the information necessary to verify purchase status, activate benefits, and handle refunds or support.
-              </li>
-              <li>
-                <strong>SMS verification service providers</strong>: when phone verification is required, your phone number and necessary verification request data may be processed by SMS service providers
-                solely for sending verification codes and preventing abuse.
-              </li>
-            </ul>
-          </section>
-
-          <section id="children">
-            <h2>Children's Privacy</h2>
-            <p>
-              The Service is not directed to children under the age of 16. If we learn that personal data from a child
-              under 16 has been collected without appropriate consent, we will take steps to delete it.
-            </p>
-          </section>
-
-          <section id="changes">
-            <h2>Changes to This Policy</h2>
-            <p>
-              We may update this Privacy Policy from time to time. When material changes are made, the updated version
-              will be posted on this page with a revised "Last updated" date.
-            </p>
-          </section>
-
-          <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have questions, requests, or privacy concerns, contact us at <a href="mailto:zhouys0725@gmail.com">zhouys0725@gmail.com</a>.</p>
-          </section>
-        </article>
-
-        <article class="policy" data-lang="zh">
-          <div class="policy-intro" id="overview-zh">
-            <h2>概述</h2>
-            <p>
-              本隐私政策说明拾音 Vois 在您使用本应用时，如何收集、使用、存储、共享和保护您的信息。
-              当您使用本服务时，即表示您同意本政策中描述的处理方式。
-            </p>
-            <p>
-              本页面可作为应用商店审核、产品官网以及终端用户访问的正式公开隐私政策页面。
-            </p>
-          </div>
-
-          <section id="definitions-zh">
-            <h2>解释与定义</h2>
-            <h3>解释</h3>
-            <p>本政策中使用的特定术语，不论以单数还是复数形式出现，均具有下文所定义的含义。</p>
-            <h3>定义</h3>
-            <ul>
-              <li><strong>应用</strong> 指拾音 Vois 软件产品。</li>
-              <li><strong>公司</strong> 指拾音 Vois 及其运营主体北京重力弧科技中心，在本政策中亦称“我们”。</li>
-              <li><strong>设备</strong> 指用于访问本服务的任何设备，包括手机、平板或电脑。</li>
-              <li><strong>个人信息</strong> 指能够识别或关联到特定自然人的信息。</li>
-              <li><strong>服务提供商</strong> 指代表我们处理数据的第三方服务机构或个人。</li>
-              <li><strong>使用数据</strong> 指用户在使用服务过程中自动产生的技术、日志和诊断信息。</li>
-            </ul>
-          </section>
-
-          <section id="collection-zh">
-            <h2>我们收集的信息</h2>
-            <h3>个人信息及相关数据类型</h3>
-            <ul>
-              <li><strong>账号与认证信息</strong>：包括手机号码、用户名、密码摘要、登录令牌、刷新令牌及短信验证码校验信息，用于完成注册、登录和账号安全校验。</li>
-              <li><strong>语音日记与 AI 数据</strong>：包括您主动提交的语音音频、由音频转换形成的文本内容、日记记录内容、标题、情绪标签、摘要、洞察、下一步建议、事项列表及周复盘结果等。</li>
-              <li><strong>订阅与支付相关信息</strong>：包括订阅状态、商品标识、订单号、交易状态、支付结果等，用于完成会员权益校验、订单处理及售后支持。</li>
-              <li><strong>提醒与设置数据</strong>：包括每周提醒开关、提醒时间及相关触发信息，用于实现提醒功能和设置同步。</li>
-              <li><strong>麦克风权限及音频数据</strong>：仅在您授权后，为实现语音采集、语音转写、语音日记记录及 AI 分析功能而访问您的麦克风，并处理您主动提交的语音音频数据。</li>
-              <li><strong>使用数据</strong>：包括 IP 地址、浏览器类型、操作系统信息、设备标识符、访问时间、页面停留情况及必要的操作日志等。</li>
-            </ul>
-            <h3>关于追踪的特别说明</h3>
-            <p>
-              如您在 Apple 平台授权我们进行追踪，设备标识符及与用户相关的标识信息可能会按照平台隐私披露要求用于追踪目的。
-              您可以在系统弹窗中选择是否授权，并可随时在设备系统设置中变更该选择。
-            </p>
-            <h3>基于授权的权限访问</h3>
-            <p>
-              麦克风等系统权限，仅会在相关功能确有必要时向您申请。您可以随时通过设备系统设置撤回相关授权，
-              但撤回授权后，语音录制、语音转写及相关 AI 功能可能无法正常使用。
-            </p>
-            <h3>关于 AI 服务输入内容的特别说明</h3>
-            <p>
-              当您使用本应用提供的 AI 语音识别、日记整理、洞察生成及周复盘功能时，我们将收集您主动提交的语音音频、
-              由语音转换形成的文本内容、日记记录内容以及相关分析结果。收集上述数据的目的，在于调用第三方 AI 接口，
-              以实现语音识别、摘要生成、洞察提炼及周复盘等核心功能。
-            </p>
-          </section>
-
-          <section id="usage-zh">
-            <h2>我们如何使用信息</h2>
-            <ul>
-              <li>用于提供、维护、优化及持续改进本服务。</li>
-              <li>用于完成用户身份管理、账号注册登录、短信验证、客户支持及日常运营保障。</li>
-              <li>用于创建、存储、展示语音日记记录、历史内容及相关 AI 结果。</li>
-              <li>用于向您发送与服务相关的通知，包括版本更新、功能变更、安全提醒及服务公告。</li>
-              <li>用于统计分析、故障排查、性能优化及安全风控。</li>
-              <li>用于防范欺诈、滥用、非法使用及履行法律法规规定的义务。</li>
-              <li>用于同步订阅状态、处理支付结果、开通会员权益以及处理退款、申诉等售后事项。</li>
-              <li>用于实现提醒设置、每周提醒及相关通知调度。</li>
-              <li>在取得平台授权的前提下，用于实现应用商店隐私标签中披露的与追踪相关的处理目的。</li>
-              <li>在发生合并、收购、重组、资产转让或类似交易时，用于支持必要且合法的业务交接安排。</li>
-              <li>在您主动使用 AI 功能时，用于调用第三方 AI 接口，以实现语音识别、摘要生成、洞察分析及周复盘，并向您返回相应结果。</li>
-            </ul>
-          </section>
-
-          <section id="retention-zh">
-            <h2>保存期限</h2>
-            <p>我们仅在实现本政策所述目的所必需的期限内保留您的个人信息。</p>
-            <ul>
-              <li><strong>账号相关数据：</strong> 在账号存续期间保留，并可在注销后最多继续保留 24 个月。</li>
-              <li><strong>语音日记、转写文本、摘要、洞察及周复盘数据：</strong> 一般在账号存续期间保留；如您删除相关内容或注销账号，我们将在满足法律法规及争议处理需要的前提下处理删除。</li>
-              <li><strong>订阅与支付相关数据：</strong> 按照验证会员权益、处理退款争议、履行财税及平台规则要求，在必要期限内保留。</li>
-              <li><strong>使用分析与日志：</strong> 通常最多保留 24 个月，用于排障、安全与产品改进。</li>
-              <li><strong>延长保留：</strong> 在法律合规、争议处理、备份管理或反欺诈需要时，可能适当延长。</li>
-            </ul>
-          </section>
-
-          <section id="transfer-zh">
-            <h2>信息传输</h2>
-            <p>
-              您的信息可能会在公司或其服务提供商所在的地区进行处理。若适用法律有要求，
-              我们会在跨境传输场景下采取适当的保护措施。
-            </p>
-          </section>
-
-          <section id="deletion-zh">
-            <h2>删除与更正</h2>
-            <p>您可以请求访问、更正或删除您向我们提供的个人信息。</p>
-            <p>在我们具有合法依据或合理运营需要的情况下，部分信息可能仍需保留。</p>
-          </section>
-
-          <section id="disclosure-zh">
-            <h2>信息披露</h2>
-            <ul>
-              <li>向为我们提供技术支持、运营维护、客户服务或产品能力支持的第三方服务提供商披露。</li>
-              <li>在需要发送短信验证码时，向短信服务提供商披露完成发送所必需的手机号码及验证请求信息。</li>
-              <li>在您购买会员或订阅服务时，向 Apple App Store、微信支付及其他适用支付渠道披露完成订单创建、支付确认和权益校验所必需的信息。</li>
-              <li>在合并、收购、融资、重组、资产转让或其他类似交易安排中，在合法且必要的范围内披露。</li>
-              <li>根据法律法规、司法机关、行政机关或其他有权机关的要求进行披露。</li>
-              <li>在为保护我们或其他用户的合法权益、财产安全、公共安全或服务系统安全所必需时披露。</li>
-              <li>在取得平台授权的前提下，设备标识符或与用户相关的标识信息可能会按照应用商店隐私披露中说明的追踪目的进行处理。</li>
-              <li>为向您提供语音识别、日记整理、洞察分析及周复盘服务，我们会将您输入的内容（包括语音音频、转写文本及相关日记内容）传输给通义云启（杭州）信息技术有限公司。该服务商作为我们的数据处理者，仅按照我们的指示处理相关数据，并仅用于完成语音识别、摘要生成、洞察提炼及周复盘分析处理。</li>
-            </ul>
-          </section>
-
-          <section id="security-zh">
-            <h2>安全措施</h2>
-            <p>
-              我们会采取商业上合理的措施保护个人信息，但任何网络传输或电子存储方式都无法保证绝对安全。
-            </p>
-          </section>
-
-          <section id="third-parties-zh">
-            <h2>第三方服务</h2>
-            <p>为保障本服务的实现、账号认证、AI 处理、订阅支付及运行稳定性，我们可能会接入第三方服务提供商提供的技术或服务能力。</p>
-            <ul>
-              <li>
-                <strong>AI 技术服务提供商</strong>：当您使用本应用的 AI 语音识别、日记整理、洞察分析及周复盘功能时，
-                您的输入内容（包括但不限于语音音频、转写文本及相关日记内容）将被传输至第三方 AI 技术服务提供商
-                <strong>通义云启（杭州）信息技术有限公司</strong>。
-                我们收集并共享的数据类型包括您主动提交的语音音频、由音频转换形成的文本内容、日记记录内容以及识别、分析和周复盘结果数据。
-                收集和共享上述数据的目的，在于调用第三方 AI 接口，以实现语音识别、摘要生成、洞察提炼及周复盘等核心功能。
-                该服务商作为我们的数据处理者，仅按照我们的指示处理相关数据，并仅用于完成前述 AI 处理。
-                我们已或将与该类服务提供商签署相应的数据处理协议，并要求其采取不低于您隐私设置要求的保护措施，包括但不限于传输加密、访问控制及用途限制。
-              </li>
-              <li>
-                <strong>支付与订阅服务提供商</strong>：当您购买会员或订阅服务时，相关支付数据可能由 Apple App Store、微信支付及其他适用支付渠道处理。
-                我们仅接收和处理完成订单确认、权益开通、状态同步及售后支持所必需的信息。
-              </li>
-              <li>
-                <strong>短信验证码服务提供商</strong>：当您使用手机号码注册、登录或验证身份时，
-                您的手机号码及必要验证请求信息可能会由短信服务提供商处理，仅用于发送验证码、身份校验及防止滥用。
-              </li>
-            </ul>
-          </section>
-
-          <section id="children-zh">
-            <h2>未成年人隐私</h2>
-            <p>
-              本服务不面向 16 周岁以下未成年人。如果我们发现未经适当同意收集了 16 周岁以下未成年人的个人信息，
-              我们会采取措施尽快删除相关数据。
-            </p>
-          </section>
-
-          <section id="changes-zh">
-            <h2>政策变更</h2>
-            <p>
-              我们可能根据业务发展、功能调整、法律法规要求或监管要求，对本隐私政策适时进行修订。
-              如本政策发生重大变更，我们将通过本页面或其他适当方式向您告知，并同步更新“最后更新日期”。
-            </p>
-          </section>
-
-          <section id="contact-zh">
-            <h2>联系我们</h2>
-            <p>如果您对本隐私政策有任何问题、请求或疑问，请发送邮件至 <a href="mailto:zhouys0725@gmail.com">zhouys0725@gmail.com</a>。</p>
-          </section>
-        </article>
-
-        <div class="notice">
-          This page improves presentation and bilingual accessibility, but policy accuracy still depends on your real production behavior.
-          Before publishing, verify the collected data types, retention periods, third-party vendors, and contact details.
+    <footer>
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <img src="logo.png" alt="拾音 Vois Logo" class="brand-mark">
+            <span class="brand-name">拾音 Vois</span>
+          </a>
+          <p>录音不是终点，行动才是。拾音 Vois，让声音真正产生价值。</p>
         </div>
-      </section>
-    </div>
-
-    <footer class="footer">
-      <p><strong>Deployment note:</strong> this remains a pure static site. Vercel can deploy it directly without a build step.</p>
-      <p><strong>Recommended next step:</strong> bind your own domain, then submit that public URL to the app store privacy policy field.</p>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>产品</h4>
+            <ul>
+              <li><a href="#features">功能</a></li>
+              <li><a href="https://apps.apple.com/cn/app/%E6%8B%BE%E9%9F%B3-vois/id6762446341">下载</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>支持</h4>
+            <ul>
+              <li><a href="privacy.html">隐私政策</a></li>
+              <li><a href="mailto:support@vois.app">联系我们</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>&copy; 2026 拾音 Vois. All rights reserved.</span>
+        <span>AI Productivity for creative minds.</span>
+      </div>
     </footer>
-  </main>
+  </div>
 
-  <script>
-    (function () {
-      var buttons = document.querySelectorAll("[data-switch]");
-      var panels = document.querySelectorAll(".policy");
-      var navLinks = document.querySelectorAll(".nav a[data-en-href]");
-
-      function setLanguage(lang) {
-        panels.forEach(function (panel) {
-          panel.classList.toggle("active", panel.getAttribute("data-lang") === lang);
-        });
-
-        buttons.forEach(function (button) {
-          button.classList.toggle("active", button.getAttribute("data-switch") === lang);
-        });
-
-        navLinks.forEach(function (link) {
-          var hrefKey = lang === "zh" ? "zhHref" : "enHref";
-          var labelKey = lang === "zh" ? "zhLabel" : "enLabel";
-          link.setAttribute("href", link.dataset[hrefKey]);
-          link.textContent = link.dataset[labelKey];
-        });
-
-        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-        try {
-          localStorage.setItem("policy-lang", lang);
-        } catch (error) {
-        }
-      }
-
-      buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          setLanguage(button.getAttribute("data-switch"));
-        });
-      });
-
-      var saved = "en";
-      try {
-        saved = localStorage.getItem("policy-lang") || saved;
-      } catch (error) {
-      }
-      setLanguage(saved === "zh" ? "zh" : "en");
-    }());
-  </script>
 </body>
 </html>
