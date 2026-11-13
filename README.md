@@ -2,6 +2,19 @@
 
 Static bilingual privacy policy page for `拾音 Vois`, prepared for direct deployment to Vercel.
 
+Photo Director has separate Chinese/English privacy and support pages under
+`photo-director/`, served by the existing Vercel project `privacy-policy`:
+
+- `/photo-director/privacy` and `/photo-director/privacy-en`
+- `/photo-director/support` and `/photo-director/support-en`
+
+These are static pages with one shared stylesheet and no scripts, forms,
+analytics or new backend. The existing Vois homepage and policy are unchanged.
+Photo Director's native links use `https://privacy-policy-ivory-two.vercel.app`.
+Update the AI-provider disclosure before enabling public cloud analysis; the
+current policy accurately states that analysis is unavailable. Publishing this
+policy does not establish App Store approval or physical-device acceptance.
+
 ## Files
 
 - `index.html`: bilingual primary public page with language switch
