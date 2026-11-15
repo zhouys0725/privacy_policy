@@ -1,42 +1,35 @@
-# Privacy Policy Site
+# Privacy and support site
 
-Static bilingual privacy policy page for `拾音 Vois`, prepared for direct deployment to Vercel.
+Static bilingual legal pages served by the existing Vercel project
+`privacy-policy-ivory-two.vercel.app`.
 
-Photo Director has separate Chinese/English privacy and support pages under
-`photo-director/`, served by the existing Vercel project `privacy-policy`:
+## Yuno routes
 
-- `/photo-director/privacy` and `/photo-director/privacy-en`
-- `/photo-director/support` and `/photo-director/support-en`
+- `/` and `/privacy`: Chinese privacy policy
+- `/privacy-en`: English privacy policy
+- `/support` and `/support-en`: Chinese and English support
+- `/terms` and `/terms-en`: Chinese and English browser terms
 
-These are static pages with one shared stylesheet and no scripts, forms,
-analytics or new backend. The existing Vois homepage and policy are unchanged.
-Photo Director's native links use `https://privacy-policy-ivory-two.vercel.app`.
-Update the AI-provider disclosure before enabling public cloud analysis; the
-current policy accurately states that analysis is unavailable. Publishing this
-policy does not establish App Store approval or physical-device acceptance.
+The root URL remains the App Store privacy-policy address. `vercel.json`
+rewrites it to the current Yuno policy without changing the public URL.
 
-## Files
+Photo Director keeps its separate pages under `/photo-director/`.
 
-- `index.html`: bilingual primary public page with language switch
-- `aicv.html`: compatibility redirect for the old path
-- `vercel.json`: static deployment config
+## Product facts reflected in the policy
 
-## Deploy to Vercel
+- Accounts use email, Apple, Google or enabled WeChat/SMS sign-in.
+- Financial data is entered by the user; the app does not read bank statements.
+- AI is opt-in. A question, selected recent context and bounded tool results
+  are sent to the configured model service; the whole book is not sent at once.
+- Cloudflare D1 is the current production database. PostgreSQL/Neon is an
+  alternative deployment mode.
+- Payments use the channel actually enabled in the app. Production enablement
+  remains a separate commercial acceptance item.
+- Book deletion is distinct from full account deletion. Full account closure is
+  handled through the published support address until an in-app flow is shipped.
 
-1. Push this directory to a Git repository.
-2. Import the repository in Vercel.
-3. Framework Preset: `Other`
-4. Build Command: leave empty
-5. Output Directory: leave empty
-6. Deploy
+## Deploy
 
-## Before Going Live
-
-Review the policy text carefully and confirm:
-
-- the app name and operator information are correct
-- the listed personal data types match actual collection behavior
-- the retention periods are accurate
-- all third-party services are included
-- the contact email is valid
-- the Chinese wording matches the legal meaning you intend to publish
+This is a static project with no build step. Deploy the repository root to the
+existing Vercel project. Changes take effect only after a successful production
+deployment; verify the public routes after deployment.

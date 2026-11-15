@@ -32,5 +32,59 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/yuno/privacy.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/yuno/privacy.html"
+    },
+    {
+      "source": "/privacy-en",
+      "destination": "/yuno/privacy-en.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/yuno/support.html"
+    },
+    {
+      "source": "/support-en",
+      "destination": "/yuno/support-en.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/yuno/terms.html"
+    },
+    {
+      "source": "/terms-en",
+      "destination": "/yuno/terms-en.html"
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/yuno/privacy.html"
+    },
+    {
+      "source": "/privacy-en.html",
+      "destination": "/yuno/privacy-en.html"
+    },
+    {
+      "source": "/support.html",
+      "destination": "/yuno/support.html"
+    },
+    {
+      "source": "/support-en.html",
+      "destination": "/yuno/support-en.html"
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/yuno/terms.html"
+    },
+    {
+      "source": "/terms-en.html",
+      "destination": "/yuno/terms-en.html"
+    }
   ]
 }
