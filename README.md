@@ -18,6 +18,11 @@ Company contact: `support@gravity.cn`. App Store links for Yuno and Photo are
 explicit placeholders until their listing URLs are available. Product links
 are defined in the corresponding `products/*.html` files. No build is needed.
 
+The company pages use a dark cinematic layout, compact alternating product rows,
+and scroll-triggered animation. Motion respects `prefers-reduced-motion`; the
+hero keeps an inline SVG fallback when WebGL is unavailable. Three.js 0.170.0
+is vendored locally with its MIT license in `js/vendor/`.
+
 ## Yuno routes
 
 - `/`: company homepage
