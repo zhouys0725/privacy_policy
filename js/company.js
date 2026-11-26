@@ -25,7 +25,5 @@
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     reduced.addEventListener('change', e => { if (e.matches) { observer.disconnect(); document.documentElement.classList.remove('motion-ready'); } });
-    // Keep content readable if the observer is delayed by a background tab.
-    setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')), 8000);
   }
 })();

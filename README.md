@@ -6,8 +6,8 @@ Static bilingual legal pages served by the existing Vercel project
 ## Company website
 
 `zhonglihu.cn` and `www.zhonglihu.cn` serve the company homepage at `/`.
-The existing `privacy-policy-ivory-two.vercel.app/` continues serving the Yuno
-privacy policy for compatibility with its published App Store URL.
+The existing `privacy-policy-ivory-two.vercel.app/` also serves the company
+homepage. Yuno privacy remains available at `/privacy` and `/yuno/privacy.html`.
 
 - `/home`: company homepage on all hosts
 - `/products/studio`, `/products/intel`, `/products/matrix`: commerce products
@@ -20,13 +20,14 @@ are defined in the corresponding `products/*.html` files. No build is needed.
 
 ## Yuno routes
 
-- `/` and `/privacy`: Chinese privacy policy
+- `/`: company homepage
+- `/privacy`: Chinese privacy policy
 - `/privacy-en`: English privacy policy
 - `/support` and `/support-en`: Chinese and English support
 - `/terms` and `/terms-en`: Chinese and English browser terms
 
-The root URL remains the App Store privacy-policy address. `vercel.json`
-rewrites it to the current Yuno policy without changing the public URL.
+`vercel.json` preserves explicit policy routes. Any external privacy-policy
+listing that used the old root URL should use `/privacy` instead.
 
 Photo Director keeps its separate pages under `/photo-director/`.
 
