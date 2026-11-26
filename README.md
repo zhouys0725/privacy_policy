@@ -31,6 +31,8 @@ is vendored locally with its MIT license in `js/vendor/`.
 - `/support` and `/support-en`: Chinese and English support
 - `/terms` and `/terms-en`: Chinese and English browser terms
 
+`index.html` and `home.html` both contain the company homepage, so Vercel filesystem routing also serves home at `/`. Keep them synchronized when editing.
+
 `vercel.json` preserves explicit policy routes. Any external privacy-policy
 listing that used the old root URL should use `/privacy` instead.
 
