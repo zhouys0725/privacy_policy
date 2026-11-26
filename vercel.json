@@ -36,6 +36,26 @@
   "rewrites": [
     {
       "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "zhonglihu.cn"
+        }
+      ],
+      "destination": "/home.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.zhonglihu.cn"
+        }
+      ],
+      "destination": "/home.html"
+    },
+    {
+      "source": "/",
       "destination": "/yuno/privacy.html"
     },
     {

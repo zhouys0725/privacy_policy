@@ -127,3 +127,6 @@ details p { color: var(--muted); font-size: 14px; }
   .grid-cards { grid-template-columns: 1fr; }
   .site-footer { padding: 0 16px 30px; }
 }
+
+/* Presentation refresh; legal copy remains unchanged. */
+html,body{background:#f5f3ed}body{color:#2b3029;-webkit-font-smoothing:antialiased}main{border-radius:12px}a:focus-visible{outline:2px solid #b64b2b;outline-offset:5px}::selection{background:#e7b998;color:#242820}@media(min-width:900px){.site-header{padding-top:30px;padding-bottom:30px}.hero{padding-top:48px;padding-bottom:44px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

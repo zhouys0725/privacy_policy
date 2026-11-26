@@ -3,6 +3,21 @@
 Static bilingual legal pages served by the existing Vercel project
 `privacy-policy-ivory-two.vercel.app`.
 
+## Company website
+
+`zhonglihu.cn` and `www.zhonglihu.cn` serve the company homepage at `/`.
+The existing `privacy-policy-ivory-two.vercel.app/` continues serving the Yuno
+privacy policy for compatibility with its published App Store URL.
+
+- `/home`: company homepage on all hosts
+- `/products/studio`, `/products/intel`, `/products/matrix`: commerce products
+- `/products/yuno`, `/products/cloud`, `/products/photo`: app and cloud products
+- `/legal`: directory of existing policies and product support
+
+Company contact: `support@gravity.cn`. App Store links for Yuno and Photo are
+explicit placeholders until their listing URLs are available. Product links
+are defined in the corresponding `products/*.html` files. No build is needed.
+
 ## Yuno routes
 
 - `/` and `/privacy`: Chinese privacy policy
